@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo</title>
+
+    <script>
+        function check(){
+            const km = document.getElementById("km");
+            const tiempo = document.getElementById("tiempo");
+            const consumo = document.getElementById("consumo");
+
+            if (isNaN(km.value) || (km.value <= 0)) {
+                console.log("hola");
+                return false;
+            }
+            if (isNaN(tiempo.value) || (tiempo.value <= 0)) {
+                return false;
+            }
+            if (isNaN(consumo.value) || (consumo.value <= 0)) {
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Introduce las características del vehículo</h1>
+
+    <form id="frmVehiculo"
+        action="/vehiculo"
+        method="post"
+        onsubmit="return check()">
+        <label for="km">Kilómetros: </label>
+        <input type="number" id="km" name="km" />
+        <br>
+        <label for="tiempo">Tiempo: </label>
+        <input type="number" id="tiempo" name="tiempo">
+        <br>
+        <label for="consumo">Consumo: </label>
+        <input type="number" id="consumo" name="consumo">
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>
